@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Search from "./Search";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
+import { NotesContext } from "./NotesContextProvider";
 
 function NoteContainer() {
+  
   return (
     <>
       <Search />

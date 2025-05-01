@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "./Header";
 import NoteContainer from "./NoteContainer";
+import NotesContextProvider from "./NotesContextProvider";
 
 function App() {
   return (
     <div className="app">
-      <Header />
-      <NoteContainer />
+      <NotesContextProvider>
+        <Header />
+        <NoteContainer />
+      </NotesContextProvider>
     </div>
   );
 }
