@@ -1,17 +1,29 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
-import { NotesContext } from "./NotesContextProvider";
 
 function NoteContainer() {
+  const [view, setView] = useState("instructions");
+  const [note, setNote] = useState(null);
+
+  function getNotes(note) {
+    console.log("NoteContainer", note);
+    if (note) {
+      setView("viewer");
+      setNote(note);
+    } else {
+      setView("editor");
+    }
+  }
+  
   
   return (
     <>
       <Search />
       <div className="container">
-        <Sidebar />
-        <Content />
+        <Sidebar displayNotes={getNotes}/>
+        <Content view={view} note={note}/>
       </div>
     </>
   );

@@ -1,12 +1,12 @@
 import React from "react";
 import NoteList from "./NoteList";
 
-function Sidebar() {
+function Sidebar({displayNotes}) {
   
   
   return (
     <div className="master-detail-element sidebar">
-      <NoteList />
+      <NoteList displayNotes={displayNotes}/>
       <button>New</button>
     </div>
   );

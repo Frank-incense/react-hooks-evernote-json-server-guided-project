@@ -1,9 +1,9 @@
 import React from "react";
 
-function NoteItem({note}) {
-  console.log(note);
+function NoteItem({note, displayNotes}) {
+
   return (
-    <li key={note.id}>
+    <li  onClick={()=> displayNotes(note)}>
       <h2>{note.title}</h2>
       <p className="truncated">{note.body}</p>
     </li>

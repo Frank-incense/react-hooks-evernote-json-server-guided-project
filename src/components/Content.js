@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NoteEditor from "./NoteEditor";
 import NoteViewer from "./NoteViewer";
 import Instructions from "./Instructions";
@@ -10,12 +10,14 @@ import Instructions from "./Instructions";
           Then complete the rest of your app before attempting to
           refactor to get this Content component to work.
 */
-function Content() {
+function Content({view, note}) {
+  
+  
   const getContent = () => {
-    if (false) {
+    if (view === "editor") {
       return <NoteEditor />;
-    } else if (false) {
-      return <NoteViewer />;
+    } else if (view === "viewer") {
+      return <NoteViewer note={note} />;
     } else {
       return <Instructions />;
     }
