@@ -5,6 +5,7 @@ import Content from "./Content";
 
 function NoteContainer() {
   const [view, setView] = useState("instructions");
+  const [searchterm, setSearchTerm] = useState("");
   const [note, setNote] = useState(null);
 
   function getNotes(note) {
@@ -12,17 +13,19 @@ function NoteContainer() {
     if (note) {
       setView("viewer");
       setNote(note);
-    } else {
-      setView("editor");
     }
   }
   
+  function handleSearch(searchWord) {
+    console.log("searching");
+    setSearchTerm(searchWord);
+  }
   
   return (
     <>
-      <Search />
+      <Search onSearch={handleSearch}/>
       <div className="container">
-        <Sidebar displayNotes={getNotes}/>
+        <Sidebar displayNotes={getNotes} searchterm={searchterm}/>
         <Content view={view} note={note}/>
       </div>
     </>
