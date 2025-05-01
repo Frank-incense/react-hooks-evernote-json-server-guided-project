@@ -1,10 +1,11 @@
 import React from "react";
 
-function NoteItem() {
+function NoteItem({note}) {
+  console.log(note);
   return (
-    <li>
-      <h2>Title</h2>
-      <p>Caption...</p>
+    <li key={note.id}>
+      <h2>{note.title}</h2>
+      <p className="truncated">{note.body}</p>
     </li>
   );
 }

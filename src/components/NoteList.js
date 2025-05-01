@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import NoteItem from "./NoteItem";
+import { NotesContext } from "./NotesContextProvider";
 
 function NoteList() {
+  const notes = useContext(NotesContext);
+
+  if (!notes) {
+    return <p>Loading...</p>;
+  }
   return (
     <ul>
       {/* Render list of notes here... */}
-      <NoteItem />
+      {notes.map((note) => (
+          <NoteItem note={note} />
+      ))}
     </ul>
   );
 }
